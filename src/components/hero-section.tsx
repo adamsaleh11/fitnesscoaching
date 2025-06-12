@@ -1,9 +1,36 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 export function HeroSection() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    {
+      src: "/coach.JPG?height=600&width=500",
+      alt: "Miguel Fernandez - Personal Trainer Session 1",
+    },
+    {
+      src: "/coach2.JPG?height=600&width=500",
+      alt: "Miguel Fernandez - Personal Trainer Session 2",
+    },
+    {
+      src: "/coach3.jpg?height=600&width=500",
+      alt: "Miguel Fernandez - Personal Trainer Session 3",
+    },
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <section className="pt-24 pb-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,11 +98,44 @@ export function HeroSection() {
           <div className="relative">
             <div className="relative h-[600px] w-full rounded-2xl overflow-hidden bg-gray-100">
               <Image
-                src="/placeholder.svg?height=600&width=500"
-                alt="Miguel Fernandez - Personal Trainer"
+                src={images[currentImageIndex].src}
+                alt={images[currentImageIndex].alt}
                 fill
-                className="object-cover"
+                className="object-cover transition-opacity duration-300"
               />
+
+              {/* Navigation buttons */}
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-6 w-6 text-gray-700" />
+              </button>
+
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-6 w-6 text-gray-700" />
+              </button>
+
+              {/* Image indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === currentImageIndex
+                        ? "bg-white w-6"
+                        : "bg-white/60 hover:bg-white/80"
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Floating cards */}

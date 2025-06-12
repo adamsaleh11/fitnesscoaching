@@ -1,7 +1,5 @@
 "use client";
 
-import type React from "react";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,18 +30,54 @@ export default function ApplyPage() {
     experience: "",
     goals: "",
     timeline: "",
-    equipment: [],
-    commitment: "",
     program: "",
-    budget: "",
     challenges: "",
     motivation: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/send-application", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert(
+          "Application submitted successfully! I'll get back to you within 48 hours."
+        );
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          age: "",
+          experience: "",
+          goals: "",
+          timeline: "",
+          program: "",
+          challenges: "",
+          motivation: "",
+        });
+      } else {
+        console.log(formData);
+        throw new Error("Failed to submit application");
+      }
+    } catch (error) {
+      alert(
+        "There was an error submitting your application. Please try again."
+      );
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -68,14 +102,14 @@ export default function ApplyPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Personal Information */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">
+            <form onSubmit={handleSubmit} className="space-y-10">
+              {/* Personal Info */}
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
                   Personal Information
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
                     <Label htmlFor="name">Full Name *</Label>
                     <Input
                       id="name"
@@ -86,7 +120,7 @@ export default function ApplyPage() {
                       required
                     />
                   </div>
-                  <div>
+                  <div className="space-y-2">
                     <Label htmlFor="email">Email Address *</Label>
                     <Input
                       id="email"
@@ -98,7 +132,7 @@ export default function ApplyPage() {
                       required
                     />
                   </div>
-                  <div>
+                  <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input
                       id="phone"
@@ -109,7 +143,7 @@ export default function ApplyPage() {
                       }
                     />
                   </div>
-                  <div>
+                  <div className="space-y-2">
                     <Label htmlFor="age">Age *</Label>
                     <Input
                       id="age"
@@ -124,12 +158,12 @@ export default function ApplyPage() {
                 </div>
               </div>
 
-              {/* Fitness Background */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">
+              {/* Experience */}
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
                   Fitness Background
                 </h3>
-                <div>
+                <div className="space-y-2">
                   <Label htmlFor="experience">Fitness Experience Level *</Label>
                   <Select
                     onValueChange={(value) =>
@@ -141,13 +175,13 @@ export default function ApplyPage() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="beginner">
-                        Beginner (0-1 years)
+                        Beginner (0-1 yrs)
                       </SelectItem>
                       <SelectItem value="intermediate">
-                        Intermediate (1-3 years)
+                        Intermediate (1-3 yrs)
                       </SelectItem>
                       <SelectItem value="advanced">
-                        Advanced (3+ years)
+                        Advanced (3+ yrs)
                       </SelectItem>
                     </SelectContent>
                   </Select>
@@ -155,23 +189,23 @@ export default function ApplyPage() {
               </div>
 
               {/* Goals */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
                   Goals & Timeline
                 </h3>
-                <div>
+                <div className="space-y-2">
                   <Label htmlFor="goals">Primary Fitness Goals *</Label>
                   <Textarea
                     id="goals"
-                    placeholder="Describe your main fitness goals (weight loss, muscle gain, strength, etc.)"
                     value={formData.goals}
                     onChange={(e) =>
                       setFormData({ ...formData, goals: e.target.value })
                     }
+                    placeholder="Describe your main fitness goals (e.g., weight loss, muscle gain)"
                     required
                   />
                 </div>
-                <div>
+                <div className="space-y-3">
                   <Label>Desired Timeline *</Label>
                   <RadioGroup
                     onValueChange={(value) =>
@@ -194,12 +228,12 @@ export default function ApplyPage() {
                 </div>
               </div>
 
-              {/* Program Interest */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">
+              {/* Program */}
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
                   Program Interest
                 </h3>
-                <div>
+                <div className="space-y-3">
                   <Label>Which program interests you most? *</Label>
                   <RadioGroup
                     onValueChange={(value) =>
@@ -208,7 +242,7 @@ export default function ApplyPage() {
                   >
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="coaching" id="coaching" />
-                      <Label htmlFor="coaching">Ongoing Coaching Program</Label>
+                      <Label htmlFor="coaching">Ongoing Coaching</Label>
                     </div>
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem
@@ -216,44 +250,49 @@ export default function ApplyPage() {
                         id="coaching-nutrition"
                       />
                       <Label htmlFor="coaching-nutrition">
-                        Coaching + Full Nutrition Package
+                        Coaching + Nutrition
                       </Label>
                     </div>
                   </RadioGroup>
                 </div>
               </div>
 
-              {/* Additional Information */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">
+              {/* Challenges */}
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
                   Additional Information
                 </h3>
-                <div>
+                <div className="space-y-2">
                   <Label htmlFor="challenges">Current Challenges</Label>
                   <Textarea
                     id="challenges"
-                    placeholder="What challenges are you facing with your current fitness routine?"
                     value={formData.challenges}
                     onChange={(e) =>
                       setFormData({ ...formData, challenges: e.target.value })
                     }
+                    placeholder="What challenges are you facing?"
                   />
                 </div>
-                <div>
+                <div className="space-y-2">
                   <Label htmlFor="motivation">Motivation</Label>
                   <Textarea
                     id="motivation"
-                    placeholder="What motivates you to achieve your fitness goals?"
                     value={formData.motivation}
                     onChange={(e) =>
                       setFormData({ ...formData, motivation: e.target.value })
                     }
+                    placeholder="What motivates you to achieve your fitness goals?"
                   />
                 </div>
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
-                Submit Application
+              <Button
+                type="submit"
+                className="w-full"
+                size="lg"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Submit Application"}
               </Button>
             </form>
           </CardContent>

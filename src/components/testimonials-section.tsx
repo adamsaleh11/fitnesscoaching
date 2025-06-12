@@ -4,30 +4,30 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Josh Fanous",
     result: "Lost 25 lbs in 4 months",
     quote:
       "Miguel's program completely changed my relationship with fitness. The custom nutrition plan made all the difference.",
-    beforeImage: "/placeholder.svg?height=200&width=150",
-    afterImage: "/placeholder.svg?height=200&width=150",
+    beforeImage: "/testimonial1before.JPG?height=200&width=150",
+    afterImage: "/testimonial1after.jpg?height=200&width=150",
     rating: 5,
   },
   {
-    name: "Mike Chen",
+    name: "Kyle Fillion",
     result: "Gained 15 lbs muscle",
     quote:
       "The ongoing coaching kept me accountable and motivated. Best investment I've made in my health.",
-    beforeImage: "/placeholder.svg?height=200&width=150",
-    afterImage: "/placeholder.svg?height=200&width=150",
+    beforeImage: "/testimonial2before.PNG?height=200&width=150",
+    afterImage: "/testimonial2after.PNG?height=200&width=150",
     rating: 5,
   },
   {
-    name: "Jessica Rodriguez",
+    name: "Tia Skri",
     result: "Transformed in 6 months",
     quote:
       "Miguel's approach is sustainable and realistic. I finally found a program that fits my busy lifestyle.",
-    beforeImage: "/placeholder.svg?height=200&width=150",
-    afterImage: "/placeholder.svg?height=200&width=150",
+    beforeImage: "/testimonial3Before.JPG?height=200&width=150",
+    afterImage: "/testimonial3after.jpg?height=200&width=150",
     rating: 5,
   },
 ];
@@ -117,14 +117,13 @@ export function TestimonialsSection() {
                 className="relative h-64 rounded-xl overflow-hidden bg-gray-100"
               >
                 <Image
-                  src={`/placeholder.svg?height=256&width=200`}
+                  src={`/mealPrep${i}.JPG?height=256&width=200`}
                   alt={`Healthy meal ${i}`}
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 text-white">
-                  <div className="text-sm font-medium">Meal Plan Example</div>
                   <div className="text-xs opacity-90">
                     Macro-optimized & delicious
                   </div>

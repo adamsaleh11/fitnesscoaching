@@ -73,7 +73,7 @@ export function AboutSection() {
           <div className="space-y-6">
             <div className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-gray-100">
               <Image
-                src="/placeholder.svg?height=400&width=500"
+                src="/coach4.jpg?height=400&width=500"
                 alt="Miguel Fernandez training"
                 fill
                 className="object-cover"
@@ -81,17 +81,17 @@ export function AboutSection() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-[180px] rounded-xl overflow-hidden bg-gray-100">
+              <div className="relative h-[250px] rounded-xl overflow-hidden bg-gray-100">
                 <Image
-                  src="/placeholder.svg?height=180&width=240"
+                  src="/coachBefore.jpg?height=180&width=240"
                   alt="Healthy meal prep"
                   fill
                   className="object-cover"
                 />
               </div>
-              <div className="relative h-[180px] rounded-xl overflow-hidden bg-gray-100">
+              <div className="relative h-[250px] rounded-xl overflow-hidden bg-gray-100">
                 <Image
-                  src="/placeholder.svg?height=180&width=240"
+                  src="/coachAfter.jpg?height=180&width=240"
                   alt="Workout demonstration"
                   fill
                   className="object-cover"
