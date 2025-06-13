@@ -81,7 +81,7 @@ export function AboutSection() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-[250px] rounded-xl overflow-hidden bg-gray-100">
+              <div className="relative h-[290px] rounded-xl overflow-hidden bg-gray-100">
                 <Image
                   src="/coachBefore.jpg?height=180&width=240"
                   alt="Healthy meal prep"
@@ -89,7 +89,7 @@ export function AboutSection() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative h-[250px] rounded-xl overflow-hidden bg-gray-100">
+              <div className="relative h-[290px] rounded-xl overflow-hidden bg-gray-100">
                 <Image
                   src="/coachAfter.jpg?height=180&width=240"
                   alt="Workout demonstration"

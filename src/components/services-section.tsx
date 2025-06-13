@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,12 +13,20 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Check, Clock, Users, Zap } from "lucide-react";
 import Link from "next/link";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { CheckoutForm } from "@/components/CheckoutForm";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 const oneTimeServices = [
   {
     title: "Blueprint Program",
     description: "The exact program I use to power MY workouts",
     price: "$24.99",
+    stripePriceId: "price_1RZGQ9ENX0FrNg9rxaub5xY3",
     features: [
       "Proven workout blueprint",
       "Instant digital delivery",
@@ -29,6 +40,7 @@ const oneTimeServices = [
     title: "Custom 3-Month Program",
     description: "Tailored to your goals, equipment, and schedule",
     price: "$65.99",
+    stripePriceId: "price_1RZGR3ENX0FrNg9rKSwpSZFk",
     features: [
       "Custom 3-month plan",
       "Equipment-specific workouts",
@@ -42,6 +54,7 @@ const oneTimeServices = [
     title: "Custom 6-Month Program",
     description: "Extended custom programming for long-term results",
     price: "$99.99",
+    stripePriceId: "price_1RZGRRENX0FrNg9rMEOkImi3",
     features: [
       "Custom 6-month plan",
       "Progressive overload built-in",
@@ -58,25 +71,27 @@ const nutritionServices = [
     title: "3-Month Program + Nutrition",
     description: "Complete training and nutrition package",
     price: "$149.99",
+    duration: "3 months",
+    stripePriceId: "price_3MonthNutrition", // Replace with real Stripe price ID
     features: [
       "Full 3-month training plan",
       "Custom meal plan recommendations",
       "Grocery list & template",
       "Macro breakdown (protein/carb/fat)",
     ],
-    duration: "3 months",
   },
   {
     title: "6-Month Program + Nutrition",
     description: "Extended training and nutrition support",
     price: "$224.99",
+    duration: "6 months",
+    stripePriceId: "price_6MonthNutrition", // Replace with real Stripe price ID
     features: [
       "Full 6-month training plan",
       "Custom meal plan recommendations",
       "Grocery list & template",
       "Macro breakdown (protein/carb/fat)",
     ],
-    duration: "6 months",
   },
 ];
 
@@ -88,11 +103,6 @@ const coachingPlans = [
       "6": "$311.99",
       "9": "$287.99",
       "12": "$249.99",
-    },
-    totalPrices: {
-      "6": "$1,871.94",
-      "9": "$2,591.91",
-      "12": "$2,999.88",
     },
     features: [
       "Weekly check-ins",
@@ -112,11 +122,6 @@ const coachingPlans = [
       "9": "$339.99",
       "12": "$299.99",
     },
-    totalPrices: {
-      "6": "$2,159.94",
-      "9": "$3,059.91",
-      "12": "$3,599.88",
-    },
     features: [
       "Everything in Ongoing Coaching",
       "Personalized meal plan ideas",
@@ -130,9 +135,26 @@ const coachingPlans = [
 ];
 
 export function ServicesSection() {
+  const [selectedPriceId, setSelectedPriceId] = useState<string | null>(null);
+
+  const findServiceTitle = (priceId: string) => {
+    const oneTimeService = oneTimeServices.find(
+      (service) => service.stripePriceId === priceId
+    );
+    if (oneTimeService) return oneTimeService.title;
+
+    const nutritionService = nutritionServices.find(
+      (service) => service.stripePriceId === priceId
+    );
+    if (nutritionService) return nutritionService.title;
+
+    return "Unknown Program";
+  };
+
   return (
     <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Choose Your Transformation Path
@@ -152,9 +174,7 @@ export function ServicesSection() {
             {oneTimeServices.map((service, index) => (
               <Card
                 key={index}
-                className={`relative ${
-                  service.popular ? "ring-2 ring-blue-500" : ""
-                }`}
+                className={`relative ${service.popular ? "ring-2 ring-blue-500" : ""}`}
               >
                 {service.popular && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500">
@@ -182,19 +202,31 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
+                  {selectedPriceId === service.stripePriceId && (
+                    <div className="mt-6">
+                      <Elements stripe={stripePromise}>
+                        <CheckoutForm
+                          priceId={service.stripePriceId}
+                          programName={service.title}
+                        />
+                      </Elements>
+                    </div>
+                  )}
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" asChild>
-                    <Link
-                      href={`/checkout?service=${service.title
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}&price=${service.price.replace(
-                        "$",
-                        ""
-                      )}`}
-                    >
-                      Get Started
-                    </Link>
+                  <Button
+                    className="w-full"
+                    onClick={() =>
+                      setSelectedPriceId(
+                        selectedPriceId === service.stripePriceId
+                          ? null
+                          : service.stripePriceId
+                      )
+                    }
+                  >
+                    {selectedPriceId === service.stripePriceId
+                      ? "Close Checkout"
+                      : "Buy Now"}
                   </Button>
                 </CardFooter>
               </Card>
@@ -202,7 +234,7 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* Nutrition Programs */}
+        {/* Nutrition Packages */}
         <div className="mb-20">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             Training + Nutrition Packages
@@ -234,19 +266,31 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
+                  {selectedPriceId === service.stripePriceId && (
+                    <div className="mt-6">
+                      <Elements stripe={stripePromise}>
+                        <CheckoutForm
+                          priceId={service.stripePriceId}
+                          programName={service.title}
+                        />
+                      </Elements>
+                    </div>
+                  )}
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" asChild>
-                    <Link
-                      href={`/checkout?service=${service.title
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}&price=${service.price.replace(
-                        "$",
-                        ""
-                      )}`}
-                    >
-                      Get Started
-                    </Link>
+                  <Button
+                    className="w-full"
+                    onClick={() =>
+                      setSelectedPriceId(
+                        selectedPriceId === service.stripePriceId
+                          ? null
+                          : service.stripePriceId
+                      )
+                    }
+                  >
+                    {selectedPriceId === service.stripePriceId
+                      ? "Close Checkout"
+                      : "Buy Now"}
                   </Button>
                 </CardFooter>
               </Card>
@@ -254,7 +298,7 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* Ongoing Coaching */}
+        {/* Coaching Plans */}
         <div>
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             Ongoing Coaching Programs
@@ -262,14 +306,11 @@ export function ServicesSection() {
           <p className="text-center text-gray-600 mb-8">
             Application required • Premium transformation support
           </p>
-
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {coachingPlans.map((plan, index) => (
               <Card
                 key={index}
-                className={`${
-                  plan.popular ? "ring-2 ring-blue-500" : ""
-                } relative`}
+                className={`relative ${plan.popular ? "ring-2 ring-blue-500" : ""}`}
               >
                 {plan.popular && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500">
@@ -294,7 +335,6 @@ export function ServicesSection() {
                       )
                     )}
                   </div>
-
                   <ul className="space-y-3">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center">
@@ -311,28 +351,6 @@ export function ServicesSection() {
                 </CardFooter>
               </Card>
             ))}
-          </div>
-        </div>
-
-        <div className="text-center mt-16">
-          <div className="bg-gray-50 rounded-lg p-8 max-w-2xl mx-auto">
-            <h4 className="text-lg font-semibold text-gray-900 mb-4">
-              What Happens After You Apply
-            </h4>
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-600">
-              <div>
-                <div className="font-medium text-gray-900">1. Review</div>
-                <div>Application reviewed within 48 hours</div>
-              </div>
-              <div>
-                <div className="font-medium text-gray-900">2. Invoice</div>
-                <div>If accepted, you'll receive an invoice</div>
-              </div>
-              <div>
-                <div className="font-medium text-gray-900">3. Delivery</div>
-                <div>Custom program delivered in 3-5 days</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
