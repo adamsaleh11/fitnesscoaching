@@ -137,20 +137,6 @@ const coachingPlans = [
 export function ServicesSection() {
   const [selectedPriceId, setSelectedPriceId] = useState<string | null>(null);
 
-  const findServiceTitle = (priceId: string) => {
-    const oneTimeService = oneTimeServices.find(
-      (service) => service.stripePriceId === priceId
-    );
-    if (oneTimeService) return oneTimeService.title;
-
-    const nutritionService = nutritionServices.find(
-      (service) => service.stripePriceId === priceId
-    );
-    if (nutritionService) return nutritionService.title;
-
-    return "Unknown Program";
-  };
-
   return (
     <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

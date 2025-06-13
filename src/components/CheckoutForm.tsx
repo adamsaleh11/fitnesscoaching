@@ -3,7 +3,6 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
 interface CheckoutFormProps {
@@ -94,8 +93,10 @@ export function CheckoutForm({ priceId, programName }: CheckoutFormProps) {
 
         setSuccess(true);
       }
-    } catch (err: any) {
-      setError(err.message || "Something went wrong.");
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Something went wrong.";
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -108,7 +109,7 @@ export function CheckoutForm({ priceId, programName }: CheckoutFormProps) {
           Payment successful!
         </div>
         <p className="text-green-700">
-          Thank you for your purchase! You'll receive a confirmation email
+          Thank you for your purchase! You&apos;ll receive a confirmation email
           shortly.
         </p>
       </div>

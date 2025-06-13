@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-05-28.basil", // Updated to the correct API version
+  apiVersion: "2025-05-28.basil",
 });
 
 export async function POST(request: NextRequest) {
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     // Create a Payment Intent instead of a Checkout Session
     const paymentIntent = await stripe.paymentIntents.create({
       amount: price.unit_amount,
-      currency: price.currency || 'usd',
+      currency: price.currency || 'CAD',
       payment_method_types: ['card'],
       metadata: {
         priceId: priceId,
@@ -39,10 +39,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ 
       clientSecret: paymentIntent.client_secret 
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Stripe error:", err);
+    const errorMessage = err instanceof Error ? err.message : "Internal server error";
     return NextResponse.json(
-      { error: err.message || "Internal server error" },
+      { error: errorMessage },
       { status: 500 }
     );
   }

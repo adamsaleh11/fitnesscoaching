@@ -21,9 +21,9 @@ export function AboutSection() {
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 As a CanFitPro certified personal trainer with over 5 years of
-                experience, I've dedicated my career to helping people transform
-                their bodies and minds through strategic fitness and nutrition
-                programming.
+                experience, I&apos;ve dedicated my career to helping people
+                transform their bodies and minds through strategic fitness and
+                nutrition programming.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 My approach combines evidence-based training methods with
