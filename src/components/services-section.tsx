@@ -127,6 +127,7 @@ const coachingPlans = [
       "Personalized meal plan ideas",
       "Custom grocery lists",
       "Macro guidance & weekly nutrition review",
+      "Direct contact during support hours",
       "Lifestyle support around eating habits",
     ],
     requiresApplication: true,

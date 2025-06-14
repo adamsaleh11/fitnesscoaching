@@ -26,8 +26,8 @@ const testimonials = [
     result: "Transformed in 6 months",
     quote:
       "Miguel's approach is sustainable and realistic. I finally found a program that fits my busy lifestyle.",
-    beforeImage: "/testimonial3Before.JPG?height=200&width=150",
-    afterImage: "/testimonial3after.jpg?height=200&width=150",
+    beforeImage: "/testimonial3before.JPG?height=200&width=150",
+    afterImage: "/testimonial3after.JPG?height=200&width=150",
     rating: 5,
   },
 ];
