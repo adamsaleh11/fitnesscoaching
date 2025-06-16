@@ -101,7 +101,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/apply"
                   className="hover:text-white transition-colors"
                 >
                   Contact
@@ -114,26 +114,17 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <Link
-                  href="/privacy"
-                  className="hover:text-white transition-colors"
-                >
+                <Link href="/" className="hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/terms"
-                  className="hover:text-white transition-colors"
-                >
+                <Link href="/" className="hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/refund"
-                  className="hover:text-white transition-colors"
-                >
+                <Link href="/" className="hover:text-white transition-colors">
                   Refund Policy
                 </Link>
               </li>
@@ -141,8 +132,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; 2024 Miguel Fernandez Fitness. All rights reserved.</p>
+        <div className="flex justify-center items-center flex-wrap gap-x-2 mt-10 text-center text-gray-500 text-sm">
+          © 2025 Saleh Groups. All Rights Reserved.
+          <Link href="/" className="text-blue-500">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>
