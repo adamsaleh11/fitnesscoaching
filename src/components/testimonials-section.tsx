@@ -152,27 +152,27 @@ export function TestimonialsSection() {
             {/* Description - Left Side */}
             <div className="lg:w-1/2 space-y-6">
               <p className="text-lg text-gray-600 leading-relaxed">
-                Nutrition plays a big role in reaching your fitness
-                goals&mdash;but it doesn&apos;t have to mean strict diets or
-                cutting out the foods you love. I&apos;ve learned how to eat in
-                a way that supports my goals while still enjoying my meals, and
-                I want to help you do the same.
+                Nutrition plays a big role in reaching your fitness goals but it
+                doesn&apos;t have to mean strict diets or cutting out the foods
+                you love. I&apos;ve learned how to eat in a way that supports my
+                goals while still enjoying my meals, and I want to help you do
+                the same.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
                 I&apos;ve bulked and cut over 35 pounds more than once, using
                 both aggressive and slower approaches depending on the goal. No
                 matter your starting point, it&apos;s not about <em>if</em>{" "}
-                you&apos;ll get results&mdash;it&apos;s about <em>when</em>, if
+                you&apos;ll get results it&apos;s about <em>when</em>, if
                 you&apos;re ready to commit.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
                 I&apos;ll share the exact meal prep ideas and recipes I use
-                myself&mdash;whether you&apos;re trying to lose weight, gain
-                muscle, or just feel better day to day. Together, we&apos;ll
-                build a way of eating that&apos;s effective, realistic, and
-                actually enjoyable.
+                myself whether you&apos;re trying to lose weight, gain muscle,
+                or just feel better day to day. Together, we&apos;ll build a way
+                of eating that&apos;s effective, realistic, and actually
+                enjoyable.
               </p>
             </div>
 

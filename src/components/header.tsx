@@ -22,7 +22,7 @@ export function Header() {
               className="rounded-sm"
             />
             <span className="text-xl font-bold text-gray-900">
-              Fernandez Performance
+              Fernandez Fitness
             </span>
           </Link>
 
