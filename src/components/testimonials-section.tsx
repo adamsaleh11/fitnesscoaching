@@ -94,7 +94,7 @@ export function TestimonialsSection() {
                       src={testimonial.beforeImage || "/placeholder.svg"}
                       alt={`${testimonial.name} before`}
                       fill
-                      className="object-cover"
+                      className="object-cover pointer-events-none"
                     />
                     <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
                       Before
@@ -105,7 +105,7 @@ export function TestimonialsSection() {
                       src={testimonial.afterImage || "/placeholder.svg"}
                       alt={`${testimonial.name} after`}
                       fill
-                      className="object-cover"
+                      className="object-cover pointer-events-none"
                     />
                     <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
                       After
@@ -152,27 +152,27 @@ export function TestimonialsSection() {
             {/* Description - Left Side */}
             <div className="lg:w-1/2 space-y-6">
               <p className="text-lg text-gray-600 leading-relaxed">
-                Nutrition plays a big role in reaching your fitness goals—but it
-                doesn&apos;t have to mean strict diets or cutting out the foods
-                you love. I&apos;ve learned how to eat in a way that supports my
-                goals while still enjoying my meals, and I want to help you do
-                the same.
+                Nutrition plays a big role in reaching your fitness
+                goals&mdash;but it doesn&apos;t have to mean strict diets or
+                cutting out the foods you love. I&apos;ve learned how to eat in
+                a way that supports my goals while still enjoying my meals, and
+                I want to help you do the same.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
                 I&apos;ve bulked and cut over 35 pounds more than once, using
                 both aggressive and slower approaches depending on the goal. No
                 matter your starting point, it&apos;s not about <em>if</em>{" "}
-                you&apos;ll get results—it&apos;s about <em>when</em>, if
+                you&apos;ll get results&mdash;it&apos;s about <em>when</em>, if
                 you&apos;re ready to commit.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
                 I&apos;ll share the exact meal prep ideas and recipes I use
-                myself—whether you&apos;re trying to lose weight, gain muscle,
-                or just feel better day to day. Together, we&apos;ll build a way
-                of eating that&apos;s effective, realistic, and actually
-                enjoyable.
+                myself&mdash;whether you&apos;re trying to lose weight, gain
+                muscle, or just feel better day to day. Together, we&apos;ll
+                build a way of eating that&apos;s effective, realistic, and
+                actually enjoyable.
               </p>
             </div>
 
@@ -183,13 +183,23 @@ export function TestimonialsSection() {
                   src={mealImages[currentMealIndex].src}
                   alt={mealImages[currentMealIndex].alt}
                   fill
-                  className="object-cover transition-opacity duration-300"
+                  className="object-cover transition-opacity duration-300 pointer-events-none"
                 />
+
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
+                {/* Overlay text */}
+                <div className="absolute bottom-12 left-4 text-white">
+                  <div className="text-sm opacity-90">
+                    {mealImages[currentMealIndex].description}
+                  </div>
+                </div>
 
                 {/* Navigation buttons */}
                 <button
                   onClick={prevMeal}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
                   aria-label="Previous meal image"
                 >
                   <ChevronLeft className="h-6 w-6 text-gray-700" />
@@ -197,14 +207,14 @@ export function TestimonialsSection() {
 
                 <button
                   onClick={nextMeal}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
                   aria-label="Next meal image"
                 >
                   <ChevronRight className="h-6 w-6 text-gray-700" />
                 </button>
 
                 {/* Image indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
                   {mealImages.map((_, index) => (
                     <button
                       key={index}
@@ -217,14 +227,6 @@ export function TestimonialsSection() {
                       aria-label={`Go to meal image ${index + 1}`}
                     />
                   ))}
-                </div>
-
-                {/* Overlay text */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-12 left-4 text-white">
-                  <div className="text-sm opacity-90">
-                    {mealImages[currentMealIndex].description}
-                  </div>
                 </div>
               </div>
             </div>

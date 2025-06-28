@@ -71,37 +71,22 @@ const oneTimeServices = [
 
 const coachingPlans = [
   {
-    title: "Ongoing Coaching",
-    description: "Full-access coaching for serious transformation",
+    title: "1-On-1 Coaching",
+    description:
+      "Complete transformation with personalized support and accountability",
     monthlyPrices: {
       "6": "$411.99",
       "9": "$387.99",
       "12": "$349.99",
     },
     features: [
-      "Bi-weekly 1-1 sessions (goal setting + lifestyle support with eating habits)",
-      "Monthly program updates",
-      "Form check reviews",
-      "Direct contact during support hours",
-    ],
-    requiresApplication: true,
-  },
-  {
-    title: "On-going Coaching + Full Nutrition",
-    description: "Maximum results with complete lifestyle alignment",
-    monthlyPrices: {
-      "6": "$459.99",
-      "9": "$439.99",
-      "12": "$399.99",
-    },
-    features: [
-      "All perks of Ongoing Coaching Program",
-      "Bi-weekly 1-on-1 meetings",
-      "Weekly Client Group meetings",
-      "Access to whatsapp chat with other clients",
-      "Personalized Meal plans",
-      "Custom Grocery List",
-      "1-1 Weekly Touchbases",
+      "Custom training program (updated as you progress)",
+      "Personalized meal plan & macro guidance",
+      "Custom grocery list",
+      "Weekly check-ins to review progress & adjust your plan",
+      "Access to private WhatsApp group & community",
+      "Weekly group Q&A or coaching call",
+      "Lifestyle & habit support to help you stay on track",
     ],
     requiresApplication: true,
     popular: true,
@@ -197,56 +182,62 @@ export function ServicesSection() {
         {/* Coaching Plans */}
         <div>
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Ongoing Coaching Programs
+            Ongoing Coaching Program
           </h3>
           <p className="text-center text-gray-600 mb-8">
-            Application required • Premium transformation support
+            Application required • Complete transformation support
           </p>
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {coachingPlans.map((plan, index) => (
-              <Card
-                key={index}
-                className={`relative ${plan.popular ? "ring-2 ring-blue-900" : ""}`}
-              >
-                {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-900">
-                    Most Comprehensive
-                  </Badge>
-                )}
-                <CardHeader>
-                  <CardTitle className="text-xl">{plan.title}</CardTitle>
-                  <CardDescription>{plan.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    {Object.entries(plan.monthlyPrices).map(
-                      ([months, price]) => (
-                        <div key={months} className="border rounded-lg p-3">
-                          <div className="text-sm text-gray-500">
-                            {months} months
+          <div className="flex justify-center">
+            <div className="max-w-2xl w-full">
+              {coachingPlans.map((plan, index) => (
+                <Card
+                  key={index}
+                  className={`relative ${plan.popular ? "ring-2 ring-blue-900" : ""}`}
+                >
+                  {plan.popular && (
+                    <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-900">
+                      Most Comprehensive
+                    </Badge>
+                  )}
+                  <CardHeader>
+                    <CardTitle className="text-xl">{plan.title}</CardTitle>
+                    <CardDescription>{plan.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      {Object.entries(plan.monthlyPrices).map(
+                        ([months, price]) => (
+                          <div key={months} className="border rounded-lg p-3">
+                            <div className="text-sm text-gray-500">
+                              {months} months
+                            </div>
+                            <div className="font-bold text-lg">{price}</div>
+                            <div className="text-xs text-gray-400">
+                              per month
+                            </div>
                           </div>
-                          <div className="font-bold text-lg">{price}</div>
-                          <div className="text-xs text-gray-400">per month</div>
-                        </div>
-                      )
-                    )}
-                  </div>
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center">
-                        <Check className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full" asChild>
-                    <Link href="/apply">Apply Now</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+                        )
+                      )}
+                    </div>
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <Check className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
+                          <span className="text-sm text-gray-600">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full" asChild>
+                      <Link href="/apply">Apply Now</Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>
