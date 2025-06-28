@@ -98,7 +98,8 @@ export default function ApplyPage() {
             <CardTitle>Coaching Application</CardTitle>
             <CardDescription>
               Please fill out this form completely. I&apos;ll review your
-              application within 48 hours.
+              application within 48 hours and get back to you personally about
+              the next steps!
             </CardDescription>
           </CardHeader>
           <CardContent>
