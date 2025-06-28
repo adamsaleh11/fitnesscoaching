@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, Clock, Users, Zap, Target, TrendingUp } from "lucide-react";
+import { Check, Zap, Target, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";

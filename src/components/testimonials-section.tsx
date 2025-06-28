@@ -153,24 +153,26 @@ export function TestimonialsSection() {
             <div className="lg:w-1/2 space-y-6">
               <p className="text-lg text-gray-600 leading-relaxed">
                 Nutrition plays a big role in reaching your fitness goals—but it
-                doesn't have to mean strict diets or cutting out the foods you
-                love. I've learned how to eat in a way that supports my goals
-                while still enjoying my meals, and I want to help you do the
-                same.
+                doesn&apos;t have to mean strict diets or cutting out the foods
+                you love. I&apos;ve learned how to eat in a way that supports my
+                goals while still enjoying my meals, and I want to help you do
+                the same.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                I've bulked and cut over 35 pounds more than once, using both
-                aggressive and slower approaches depending on the goal. No
-                matter your starting point, it's not about <em>if</em> you'll
-                get results—it's about <em>when</em>, if you're ready to commit.
+                I&apos;ve bulked and cut over 35 pounds more than once, using
+                both aggressive and slower approaches depending on the goal. No
+                matter your starting point, it&apos;s not about <em>if</em>{" "}
+                you&apos;ll get results—it&apos;s about <em>when</em>, if
+                you&apos;re ready to commit.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                I'll share the exact meal prep ideas and recipes I use
-                myself—whether you're trying to lose weight, gain muscle, or
-                just feel better day to day. Together, we'll build a way of
-                eating that's effective, realistic, and actually enjoyable.
+                I&apos;ll share the exact meal prep ideas and recipes I use
+                myself—whether you&apos;re trying to lose weight, gain muscle,
+                or just feel better day to day. Together, we&apos;ll build a way
+                of eating that&apos;s effective, realistic, and actually
+                enjoyable.
               </p>
             </div>
 
