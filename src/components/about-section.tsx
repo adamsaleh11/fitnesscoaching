@@ -12,7 +12,7 @@ export function AboutSection() {
             <div className="space-y-4">
               <Badge
                 variant="outline"
-                className="text-blue-600 border-blue-600"
+                className="text-blue-900 border-blue-900"
               >
                 Certified Professional
               </Badge>
@@ -36,15 +36,15 @@ export function AboutSection() {
             <div className="grid grid-cols-2 gap-6">
               <Card>
                 <CardContent className="p-6 text-center">
-                  <Users className="h-8 w-8 text-blue-600 mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-gray-900">500+</div>
+                  <Users className="h-8 w-8 text-blue-900 mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-gray-900">50+</div>
                   <div className="text-sm text-gray-600">Clients Coached</div>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardContent className="p-6 text-center">
-                  <Award className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+                  <Award className="h-8 w-8 text-blue-900 mx-auto mb-3" />
                   <div className="text-2xl font-bold text-gray-900">
                     CanFitPro
                   </div>
@@ -54,7 +54,7 @@ export function AboutSection() {
 
               <Card>
                 <CardContent className="p-6 text-center">
-                  <Target className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+                  <Target className="h-8 w-8 text-blue-900 mx-auto mb-3" />
                   <div className="text-2xl font-bold text-gray-900">98%</div>
                   <div className="text-sm text-gray-600">Success Rate</div>
                 </CardContent>
@@ -62,7 +62,7 @@ export function AboutSection() {
 
               <Card>
                 <CardContent className="p-6 text-center">
-                  <Zap className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+                  <Zap className="h-8 w-8 text-blue-900 mx-auto mb-3" />
                   <div className="text-2xl font-bold text-gray-900">5+</div>
                   <div className="text-sm text-gray-600">Years Experience</div>
                 </CardContent>

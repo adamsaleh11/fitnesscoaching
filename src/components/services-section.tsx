@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, Clock, Users, Zap } from "lucide-react";
+import { Check, Clock, Users, Zap, Target, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -23,75 +23,49 @@ const stripePromise = loadStripe(
 
 const oneTimeServices = [
   {
-    title: "Blueprint Program",
-    description: "The exact program I use to power MY workouts",
+    title: "Strength Focus",
+    description: "Build maximum strength with proven powerlifting techniques",
     price: "$24.99",
     stripePriceId: "price_1RZGQ9ENX0FrNg9rxaub5xY3",
     features: [
-      "Proven workout blueprint",
-      "Instant digital delivery",
-      "Exercise demonstrations",
-      "Progress tracking guide",
+      "Custom 3-month plan",
+      "Instant Digital Delivery",
+      "Proven Results for strength gain from many clients",
+      "Built in Progress tracker",
+      "Adaptable to any fitness level",
     ],
     icon: Zap,
     popular: false,
   },
   {
-    title: "Custom 3-Month Program",
-    description: "Tailored to your goals, equipment, and schedule",
-    price: "$65.99",
+    title: "Physique Focus",
+    description: "Sculpt your ideal physique with targeted muscle building",
+    price: "$24.99",
     stripePriceId: "price_1RZGR3ENX0FrNg9rKSwpSZFk",
     features: [
       "Custom 3-month plan",
-      "Equipment-specific workouts",
-      "Goal-oriented programming",
-      "48-hour delivery",
+      "Instant Digital Delivery",
+      "Proven Results for muscle build from many clients",
+      "Built in Progress tracker",
+      "Adaptable to any fitness level",
     ],
-    icon: Clock,
-    popular: false,
-  },
-  {
-    title: "Custom 6-Month Program",
-    description: "Extended custom programming for long-term results",
-    price: "$99.99",
-    stripePriceId: "price_1RZGRRENX0FrNg9rMEOkImi3",
-    features: [
-      "Custom 6-month plan",
-      "Progressive overload built-in",
-      "Equipment-specific workouts",
-      "48-hour delivery",
-    ],
-    icon: Clock,
+    icon: Target,
     popular: true,
   },
-];
-
-const nutritionServices = [
   {
-    title: "3-Month Program + Nutrition",
-    description: "Complete training and nutrition package",
-    price: "$149.99",
-    duration: "3 months",
-    stripePriceId: "price_3MonthNutrition", // Replace with real Stripe price ID
+    title: "Fat Loss Focus",
+    description: "Achieve sustainable fat loss while maintaining muscle",
+    price: "$24.99",
+    stripePriceId: "price_1RZGRRENX0FrNg9rMEOkImi3",
     features: [
-      "Full 3-month training plan",
-      "Custom meal plan recommendations",
-      "Grocery list & template",
-      "Macro breakdown (protein/carb/fat)",
+      "Custom 3-month plan",
+      "Instant Digital Delivery",
+      "Proven Results for fat loss from many clients",
+      "Built in Progress tracker",
+      "Adaptable to any fitness level",
     ],
-  },
-  {
-    title: "6-Month Program + Nutrition",
-    description: "Extended training and nutrition support",
-    price: "$224.99",
-    duration: "6 months",
-    stripePriceId: "price_6MonthNutrition", // Replace with real Stripe price ID
-    features: [
-      "Full 6-month training plan",
-      "Custom meal plan recommendations",
-      "Grocery list & template",
-      "Macro breakdown (protein/carb/fat)",
-    ],
+    icon: TrendingUp,
+    popular: false,
   },
 ];
 
@@ -100,35 +74,34 @@ const coachingPlans = [
     title: "Ongoing Coaching",
     description: "Full-access coaching for serious transformation",
     monthlyPrices: {
-      "6": "$311.99",
-      "9": "$287.99",
-      "12": "$249.99",
+      "6": "$411.99",
+      "9": "$387.99",
+      "12": "$349.99",
     },
     features: [
-      "Weekly check-ins",
+      "Bi-weekly 1-1 sessions (goal setting + lifestyle support with eating habits)",
       "Monthly program updates",
-      "Goal-setting sessions",
       "Form check reviews",
       "Direct contact during support hours",
-      "Nutrition tracking reviews",
     ],
     requiresApplication: true,
   },
   {
-    title: "Coaching + Full Nutrition",
+    title: "On-going Coaching + Full Nutrition",
     description: "Maximum results with complete lifestyle alignment",
     monthlyPrices: {
-      "6": "$359.99",
-      "9": "$339.99",
-      "12": "$299.99",
+      "6": "$459.99",
+      "9": "$439.99",
+      "12": "$399.99",
     },
     features: [
-      "Everything in Ongoing Coaching",
-      "Personalized meal plan ideas",
-      "Custom grocery lists",
-      "Macro guidance & weekly nutrition review",
-      "Direct contact during support hours",
-      "Lifestyle support around eating habits",
+      "All perks of Ongoing Coaching Program",
+      "Bi-weekly 1-on-1 meetings",
+      "Weekly Client Group meetings",
+      "Access to whatsapp chat with other clients",
+      "Personalized Meal plans",
+      "Custom Grocery List",
+      "1-1 Weekly Touchbases",
     ],
     requiresApplication: true,
     popular: true,
@@ -152,92 +125,28 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* One-Time Programs */}
+        {/* One-Time Blueprint Programs */}
         <div className="mb-20">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            One-Time Programs
+            One-time Blueprint Programs
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             {oneTimeServices.map((service, index) => (
               <Card
                 key={index}
-                className={`relative ${service.popular ? "ring-2 ring-blue-500" : ""}`}
+                className={`relative ${service.popular ? "ring-2 ring-blue-900" : ""}`}
               >
                 {service.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500">
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-900">
                     Most Popular
                   </Badge>
                 )}
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <service.icon className="h-8 w-8 text-blue-600" />
+                    <service.icon className="h-8 w-8 text-blue-900" />
                     <div className="text-right">
                       <div className="text-3xl font-bold text-gray-900">
                         {service.price}
-                      </div>
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center">
-                        <Check className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {selectedPriceId === service.stripePriceId && (
-                    <div className="mt-6">
-                      <Elements stripe={stripePromise}>
-                        <CheckoutForm
-                          priceId={service.stripePriceId}
-                          programName={service.title}
-                        />
-                      </Elements>
-                    </div>
-                  )}
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    className="w-full"
-                    onClick={() =>
-                      setSelectedPriceId(
-                        selectedPriceId === service.stripePriceId
-                          ? null
-                          : service.stripePriceId
-                      )
-                    }
-                  >
-                    {selectedPriceId === service.stripePriceId
-                      ? "Close Checkout"
-                      : "Buy Now"}
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Nutrition Packages */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Training + Nutrition Packages
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {nutritionServices.map((service, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <Users className="h-8 w-8 text-blue-600" />
-                    <div className="text-right">
-                      <div className="text-3xl font-bold text-gray-900">
-                        {service.price}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {service.duration}
                       </div>
                     </div>
                   </div>
@@ -297,10 +206,10 @@ export function ServicesSection() {
             {coachingPlans.map((plan, index) => (
               <Card
                 key={index}
-                className={`relative ${plan.popular ? "ring-2 ring-blue-500" : ""}`}
+                className={`relative ${plan.popular ? "ring-2 ring-blue-900" : ""}`}
               >
                 {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500">
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-900">
                     Most Comprehensive
                   </Badge>
                 )}

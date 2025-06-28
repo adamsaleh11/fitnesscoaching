@@ -51,7 +51,7 @@ export function HeroSection() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Transform Your
-                <span className="block text-blue-600">
+                <span className="block text-blue-900">
                   Physique & Performance
                 </span>
               </h1>

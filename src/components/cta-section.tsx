@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function CTASection() {
   return (
-    <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-700">
+    <section className="py-24 bg-gradient-to-r from-blue-900 to-blue-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-3xl mx-auto space-y-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
@@ -41,10 +41,10 @@ export function CTASection() {
             <p className="text-blue-100 text-sm">
               Questions? Email me directly at{" "}
               <a
-                href="mailto:miguel@example.com"
+                href="mailto:miguel.fern2002@gmail.com"
                 className="text-white underline hover:no-underline"
               >
-                miguel@example.com
+                miguel.fern2002@gmail.com
               </a>
             </p>
           </div>
