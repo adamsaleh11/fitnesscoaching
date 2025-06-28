@@ -145,7 +145,7 @@ export function TestimonialsSection() {
         {/* Nutrition Section */}
         <div className="mt-24">
           <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-12 text-center">
-            Eating healthy isn't always boring
+            Eating healthy isn&apos;t always boring
           </h3>
 
           <div className="flex flex-col lg:flex-row gap-12 items-center">
