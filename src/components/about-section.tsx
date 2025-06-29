@@ -59,18 +59,16 @@ export function AboutSection() {
                 As a CanFitPro certified personal trainer with over 5 years of
                 experience, I&apos;ve dedicated my career to helping people
                 transform their bodies and minds through strategic fitness and
-                nutrition programming. I believe true transformation goes beyond
-                just aesthetics; it&apos;s about building confidence,
-                discipline, and mental resilience to live your life to its
-                fullest potential.
+                nutrition programming. I believe true transformation is about
+                building confidence, discipline, and mental resilience to live
+                your life to its fullest potential.
               </p>
               <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-gray-600 leading-relaxed">
-                My approach combines evidence-based training methods with
-                personalized nutrition strategies to deliver results that last.
-                Every program I create is tailored to your unique goals,
-                equipment, and lifestyle, ensuring you build sustainable habits,
-                improve your relationship with food and exercise, and develop a
-                mindset that empowers you long after our sessions are done.
+                My approach combines evidence-based training methods that is
+                tailored to your unique goals, equipment, and lifestyle,
+                ensuring you build sustainable habits, improve your relationship
+                with food and exercise, and develop a mindset that empowers you
+                long after our sessions are done.
               </p>
             </div>
 
