@@ -142,16 +142,16 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Nutrition Section */}
+        {/* Nutrition Section - Force side-by-side layout on all screen sizes */}
         <div className="mt-24">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-12 text-center">
             Eating healthy isn&apos;t always boring
           </h3>
 
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-12 items-start">
             {/* Description - Left Side */}
-            <div className="lg:w-1/2 space-y-6">
-              <p className="text-lg text-gray-600 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+              <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-gray-600 leading-relaxed">
                 Nutrition plays a big role in reaching your fitness goals but it
                 doesn&apos;t have to mean strict diets or cutting out the foods
                 you love. I&apos;ve learned how to eat in a way that supports my
@@ -159,7 +159,7 @@ export function TestimonialsSection() {
                 the same.
               </p>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-gray-600 leading-relaxed">
                 I&apos;ve bulked and cut over 35 pounds more than once, using
                 both aggressive and slower approaches depending on the goal. No
                 matter your starting point, it&apos;s not about <em>if</em>{" "}
@@ -167,7 +167,7 @@ export function TestimonialsSection() {
                 you&apos;re ready to commit.
               </p>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-gray-600 leading-relaxed">
                 I&apos;ll share the exact meal prep ideas and recipes I use
                 myself whether you&apos;re trying to lose weight, gain muscle,
                 or just feel better day to day. Together, we&apos;ll build a way
@@ -176,9 +176,9 @@ export function TestimonialsSection() {
               </p>
             </div>
 
-            {/* Image Slider - Right Side */}
-            <div className="lg:w-1/2">
-              <div className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-gray-100">
+            {/* Image Slider - Right Side - Height matches paragraph content */}
+            <div className="w-full">
+              <div className="relative h-[340px] sm:h-[300px] lg:h-[400px] w-full rounded-2xl overflow-hidden bg-gray-100">
                 <Image
                   src={mealImages[currentMealIndex].src}
                   alt={mealImages[currentMealIndex].alt}
@@ -190,8 +190,8 @@ export function TestimonialsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
                 {/* Overlay text */}
-                <div className="absolute bottom-12 left-4 text-white">
-                  <div className="text-sm opacity-90">
+                <div className="absolute bottom-6 sm:bottom-8 lg:bottom-12 left-3 sm:left-4 text-white">
+                  <div className="text-xs sm:text-xs lg:text-sm opacity-90">
                     {mealImages[currentMealIndex].description}
                   </div>
                 </div>
@@ -199,29 +199,29 @@ export function TestimonialsSection() {
                 {/* Navigation buttons */}
                 <button
                   onClick={prevMeal}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
+                  className="absolute left-1.5 sm:left-2 lg:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1 sm:p-1.5 lg:p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
                   aria-label="Previous meal image"
                 >
-                  <ChevronLeft className="h-6 w-6 text-gray-700" />
+                  <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4 lg:h-6 lg:w-6 text-gray-700" />
                 </button>
 
                 <button
                   onClick={nextMeal}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
+                  className="absolute right-1.5 sm:right-2 lg:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-1 sm:p-1.5 lg:p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
                   aria-label="Next meal image"
                 >
-                  <ChevronRight className="h-6 w-6 text-gray-700" />
+                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 lg:h-6 lg:w-6 text-gray-700" />
                 </button>
 
                 {/* Image indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                <div className="absolute bottom-2 sm:bottom-3 lg:bottom-4 left-1/2 -translate-x-1/2 flex space-x-1.5 sm:space-x-2 z-10">
                   {mealImages.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentMealIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      className={`w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 rounded-full transition-all duration-200 ${
                         index === currentMealIndex
-                          ? "bg-white w-6"
+                          ? "bg-white w-3 sm:w-4 lg:w-6"
                           : "bg-white/60 hover:bg-white/80"
                       }`}
                       aria-label={`Go to meal image ${index + 1}`}
