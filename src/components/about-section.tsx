@@ -72,7 +72,7 @@ export function AboutSection() {
               </p>
             </div>
 
-            <div className="mt-16 sm:mt-20 lg:mt-24 xl:mt-28 grid grid-cols-2 gap-2 sm:gap-3 lg:gap-6 h-[300px] sm:h-[180px] lg:h-[400px] xl:h-[450px]">
+            <div className="sm:mt-20 lg:mt-24 xl:mt-28 grid grid-cols-2 gap-2 sm:gap-3 lg:gap-6 h-[300px] sm:h-[180px] lg:h-[400px] xl:h-[450px]">
               <div className="flex flex-col gap-2 sm:gap-3 lg:gap-6">
                 <Card className="flex-1">
                   <CardContent className="p-2 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
