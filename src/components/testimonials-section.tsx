@@ -178,7 +178,7 @@ export function TestimonialsSection() {
 
             {/* Image Slider - Right Side - Height matches paragraph content */}
             <div className="w-full">
-              <div className="relative h-[340px] sm:h-[300px] lg:h-[400px] w-full rounded-2xl overflow-hidden bg-gray-100">
+              <div className="relative h-[400px] sm:h-[300px] lg:h-[400px] w-full rounded-2xl overflow-hidden bg-gray-100">
                 <Image
                   src={mealImages[currentMealIndex].src}
                   alt={mealImages[currentMealIndex].alt}
