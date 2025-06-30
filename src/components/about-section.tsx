@@ -72,10 +72,10 @@ export function AboutSection() {
               </p>
             </div>
 
-            <div className="sm:mt-20 lg:mt-24 xl:mt-28 grid grid-cols-2 gap-2 sm:gap-3 lg:gap-6 h-[200px] sm:h-[180px] lg:h-[400px] xl:h-[450px]">
-              <div className="flex flex-col gap-2 sm:gap-3 lg:gap-6">
+            <div className="sm:mt-20 lg:mt-24 xl:mt-28 grid grid-cols-2 gap-1.5 sm:gap-3 lg:gap-6 h-[125px] sm:h-[180px] lg:h-[400px] xl:h-[450px]">
+              <div className="flex flex-col gap-1.5 sm:gap-3 lg:gap-6">
                 <Card className="flex-1">
-                  <CardContent className="p-2 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
+                  <CardContent className="p-1.5 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
                     <Users className="h-3 w-3 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
                     <div className="text-xs sm:text-lg lg:text-2xl font-bold text-gray-900">
                       50+
@@ -99,7 +99,7 @@ export function AboutSection() {
                 </Card>
               </div>
 
-              <div className="flex flex-col gap-2 sm:gap-3 lg:gap-6">
+              <div className="flex flex-col gap-1.5 sm:gap-3 lg:gap-6">
                 <Card className="flex-1">
                   <CardContent className="p-2 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
                     <Award className="h-3 w-3 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
