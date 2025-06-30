@@ -145,7 +145,7 @@ export function AboutSection() {
                 fill
                 className={`object-cover transition-opacity duration-300 ${
                   currentImageIndex === 1
-                    ? "object-[60%_center] sm:object-center"
+                    ? "object-[55%_center] sm:object-center"
                     : "object-center"
                 }`}
               />
