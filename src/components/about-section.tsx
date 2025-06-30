@@ -133,7 +133,7 @@ export function AboutSection() {
                 src="/coach4.jpg?height=500&width=600"
                 alt="Miguel Fernandez training"
                 fill
-                className="object-cover"
+                className="object-cover object-[60%_center] sm:object-center"
               />
             </div>
 
