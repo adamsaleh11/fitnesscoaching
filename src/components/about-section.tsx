@@ -143,7 +143,11 @@ export function AboutSection() {
                 src={transformationImages[currentImageIndex].src}
                 alt={transformationImages[currentImageIndex].alt}
                 fill
-                className="object-cover transition-opacity duration-300"
+                className={`object-cover transition-opacity duration-300 ${
+                  currentImageIndex === 1
+                    ? "object-[50px_center] sm:object-center"
+                    : "object-center"
+                }`}
               />
 
               {/* Navigation buttons */}
