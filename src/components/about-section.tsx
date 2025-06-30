@@ -72,15 +72,15 @@ export function AboutSection() {
               </p>
             </div>
 
-            <div className="sm:mt-20 lg:mt-24 xl:mt-28 grid grid-cols-2 gap-2 sm:gap-3 lg:gap-6 h-[300px] sm:h-[180px] lg:h-[400px] xl:h-[450px]">
+            <div className="sm:mt-20 lg:mt-24 xl:mt-28 grid grid-cols-2 gap-2 sm:gap-3 lg:gap-6 h-[200px] sm:h-[180px] lg:h-[400px] xl:h-[450px]">
               <div className="flex flex-col gap-2 sm:gap-3 lg:gap-6">
                 <Card className="flex-1">
                   <CardContent className="p-2 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
-                    <Users className="h-4 w-4 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
-                    <div className="text-sm sm:text-lg lg:text-2xl font-bold text-gray-900">
+                    <Users className="h-3 w-3 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
+                    <div className="text-xs sm:text-lg lg:text-2xl font-bold text-gray-900">
                       50+
                     </div>
-                    <div className="text-xs sm:text-xs lg:text-sm text-gray-600">
+                    <div className="text-[10px] sm:text-xs lg:text-sm text-gray-600">
                       Clients Coached
                     </div>
                   </CardContent>
@@ -88,11 +88,11 @@ export function AboutSection() {
 
                 <Card className="flex-1">
                   <CardContent className="p-2 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
-                    <Target className="h-4 w-4 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
-                    <div className="text-sm sm:text-lg lg:text-2xl font-bold text-gray-900">
+                    <Target className="h-3 w-3 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
+                    <div className="text-xs sm:text-lg lg:text-2xl font-bold text-gray-900">
                       98%
                     </div>
-                    <div className="text-xs sm:text-xs lg:text-sm text-gray-600">
+                    <div className="text-[10px] sm:text-xs lg:text-sm text-gray-600">
                       Success Rate
                     </div>
                   </CardContent>
@@ -102,11 +102,11 @@ export function AboutSection() {
               <div className="flex flex-col gap-2 sm:gap-3 lg:gap-6">
                 <Card className="flex-1">
                   <CardContent className="p-2 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
-                    <Award className="h-4 w-4 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
-                    <div className="text-xs sm:text-sm lg:text-2xl font-bold text-gray-900">
+                    <Award className="h-3 w-3 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
+                    <div className="text-[10px] sm:text-sm lg:text-2xl font-bold text-gray-900">
                       CanFitPro
                     </div>
-                    <div className="text-xs sm:text-xs lg:text-sm text-gray-600">
+                    <div className="text-[10px] sm:text-xs lg:text-sm text-gray-600">
                       Certified Trainer
                     </div>
                   </CardContent>
@@ -114,11 +114,11 @@ export function AboutSection() {
 
                 <Card className="flex-1">
                   <CardContent className="p-2 sm:p-3 lg:p-6 text-center h-full flex flex-col justify-center">
-                    <Zap className="h-4 w-4 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
-                    <div className="text-sm sm:text-lg lg:text-2xl font-bold text-gray-900">
+                    <Zap className="h-3 w-3 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-blue-900 mx-auto mb-1 sm:mb-2 lg:mb-3" />
+                    <div className="text-xs sm:text-lg lg:text-2xl font-bold text-gray-900">
                       5+
                     </div>
-                    <div className="text-xs sm:text-xs lg:text-sm text-gray-600">
+                    <div className="text-[10px] sm:text-xs lg:text-sm text-gray-600">
                       Years Experience
                     </div>
                   </CardContent>
