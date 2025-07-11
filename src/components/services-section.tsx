@@ -204,14 +204,19 @@ export function ServicesSection() {
                     <CardDescription>{plan.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <div className="grid grid-cols-3 gap-4 text-center">
+                    <div className="grid grid-cols-3 gap-2 text-center">
                       {Object.entries(plan.monthlyPrices).map(
                         ([months, price]) => (
-                          <div key={months} className="border rounded-lg p-3">
-                            <div className="text-sm text-gray-500">
+                          <div
+                            key={months}
+                            className="border rounded-lg p-2 px-3"
+                          >
+                            <div className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">
                               {months} months
                             </div>
-                            <div className="font-bold text-lg">{price}</div>
+                            <div className="font-bold text-base sm:text-lg">
+                              {price}
+                            </div>
                             <div className="text-xs text-gray-400">
                               per month
                             </div>
