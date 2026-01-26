@@ -26,7 +26,7 @@ const oneTimeServices = [
     title: "Strength Focus",
     description: "Build maximum strength with proven powerlifting techniques",
     price: "$24.99",
-    stripePriceId: "price_1StZesGaVopuQ3n8E9r6a0tl",
+    stripePriceId: "price_1SteJYGagt0TrWTEzbjFbekZ",
     features: [
       "Custom 3-month plan",
       "Instant Digital Delivery",
@@ -41,7 +41,7 @@ const oneTimeServices = [
     title: "Physique Focus",
     description: "Sculpt your ideal physique with targeted muscle building",
     price: "$24.99",
-    stripePriceId: "price_1StZUzGaVopuQ3n8NVPg92dg",
+    stripePriceId: "price_1SteL9Gagt0TrWTEEAHqgBVy",
     features: [
       "Custom 3-month plan",
       "Instant Digital Delivery",
@@ -56,7 +56,7 @@ const oneTimeServices = [
     title: "Fat Loss Focus",
     description: "Achieve sustainable fat loss while maintaining muscle",
     price: "$24.99",
-    stripePriceId: "price_1StZWBGaVopuQ3n8h1Mif31d",
+    stripePriceId: "price_1SteMCGagt0TrWTEPZV1QxXB",
     features: [
       "Custom 3-month plan",
       "Instant Digital Delivery",
