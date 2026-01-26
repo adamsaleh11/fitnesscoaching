@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     const { data, error } = await resend.emails.send({
       from: 'Coach App <onboarding@resend.dev>',
-      to: ['adamsaleh0824@gmail.com'], // Replace with your actual email
+      to: ['miguel.fern2002@gmail.com'], // Replace with your actual email
       subject: `New Coaching Application from ${name}`,
       react: await CoachingApplicationTemplate({
         name,

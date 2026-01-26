@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     const { data, error } = await resend.emails.send({
       from: 'Coach App <onboarding@resend.dev>',
-      to: ['adamsaleh0824@gmail.com'], // Your coach email
+      to: ['miguel.fern2002@gmail.com'], // Your coach email
       subject: `New Program Purchase: ${programName}`,
       react: PurchaseNotificationTemplate({
         customerName,
