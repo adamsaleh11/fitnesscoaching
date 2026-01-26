@@ -150,6 +150,7 @@ export function CheckoutForm({ priceId, programName }: CheckoutFormProps) {
       <div className="p-3 border rounded bg-white">
         <CardElement
           options={{
+            hidePostalCode: true,
             style: {
               base: {
                 fontSize: "16px",
