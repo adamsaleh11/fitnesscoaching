@@ -26,7 +26,7 @@ const oneTimeServices = [
     title: "Strength Focus",
     description: "Build maximum strength with proven powerlifting techniques",
     price: "$24.99",
-    stripePriceId: "price_1RZGQ9ENX0FrNg9rxaub5xY3",
+    stripePriceId: "prod_TrIFhKzkLt0is6",
     features: [
       "Custom 3-month plan",
       "Instant Digital Delivery",
