@@ -42,7 +42,7 @@ export function Footer() {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  One-Time Programs
+                  Online Coaching
                 </Link>
               </li>
               <li>
@@ -50,23 +50,7 @@ export function Footer() {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Custom Programs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#services"
-                  className="hover:text-white transition-colors"
-                >
-                  Nutrition Plans
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#services"
-                  className="hover:text-white transition-colors"
-                >
-                  Ongoing Coaching
+                  Ongoing Coaching Program
                 </Link>
               </li>
             </ul>

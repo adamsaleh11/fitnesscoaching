@@ -21,9 +21,11 @@ export async function POST(request: NextRequest) {
       motivation,
     } = body;
 
-    if (!name || !email || !age || !experience || !goals || !timeline || !program) {
+    if (!name || !email || !age || !experience || !goals || !timeline) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
+
+    const selectedProgram = program || 'Online Coaching';
 
     const { data, error } = await resend.emails.send({
       from: 'Coach App <onboarding@resend.dev>',
@@ -37,7 +39,7 @@ export async function POST(request: NextRequest) {
         experience,
         goals,
         timeline,
-        program,
+        program: selectedProgram,
         challenges,
         motivation,
       }),

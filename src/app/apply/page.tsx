@@ -30,7 +30,7 @@ export default function ApplyPage() {
     experience: "",
     goals: "",
     timeline: "",
-    program: "",
+    program: "Online Coaching",
     challenges: "",
     motivation: "",
   });
@@ -62,7 +62,7 @@ export default function ApplyPage() {
           experience: "",
           goals: "",
           timeline: "",
-          program: "",
+          program: "Online Coaching",
           challenges: "",
           motivation: "",
         });
@@ -88,8 +88,7 @@ export default function ApplyPage() {
             Apply for Coaching
           </h1>
           <p className="text-xl text-gray-600">
-            Tell me about your goals so I can create the perfect program for
-            you.
+            Tell me about your goals so I can build your online coaching plan.
           </p>
         </div>
 
@@ -207,52 +206,23 @@ export default function ApplyPage() {
                   />
                 </div>
                 <div className="space-y-3">
-                  <Label>Desired Timeline *</Label>
+                  <Label>Desired Coaching Plan *</Label>
                   <RadioGroup
                     onValueChange={(value) =>
                       setFormData({ ...formData, timeline: value })
                     }
                   >
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="3-months" id="3-months" />
+                      <RadioGroupItem value="3 months" id="3-months" />
                       <Label htmlFor="3-months">3 months</Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="6-months" id="6-months" />
+                      <RadioGroupItem value="6 months" id="6-months" />
                       <Label htmlFor="6-months">6 months</Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="12-months" id="12-months" />
+                      <RadioGroupItem value="12 months" id="12-months" />
                       <Label htmlFor="12-months">12 months</Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-              </div>
-
-              {/* Program */}
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
-                  Program Interest
-                </h3>
-                <div className="space-y-3">
-                  <Label>Which program interests you most? *</Label>
-                  <RadioGroup
-                    onValueChange={(value) =>
-                      setFormData({ ...formData, program: value })
-                    }
-                  >
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="coaching" id="coaching" />
-                      <Label htmlFor="coaching">Ongoing Coaching</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem
-                        value="coaching-nutrition"
-                        id="coaching-nutrition"
-                      />
-                      <Label htmlFor="coaching-nutrition">
-                        Coaching + Nutrition
-                      </Label>
                     </div>
                   </RadioGroup>
                 </div>

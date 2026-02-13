@@ -41,10 +41,10 @@ export function CTASection() {
             <p className="text-blue-100 text-sm">
               Questions? Email me directly at{" "}
               <a
-                href="mailto:miguel.fern2002@gmail.com"
+                href="mailto:fernandezfitnezz@gmail.com"
                 className="text-white underline hover:no-underline"
               >
-                miguel.fern2002@gmail.com
+                fernandezfitnezz@gmail.com
               </a>
             </p>
           </div>

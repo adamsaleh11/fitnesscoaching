@@ -9,16 +9,16 @@ const testimonials = [
     name: "Josh Fanous",
     result: "",
     quote:
-      "I wanted to put on some muscle and Miguel helped me while I was balancing university and a full time job.",
+      "With university and a full time job I was able to use Miguel’s nutritional guidance to structure my routine in a way that let me get in much better shape with little time.",
     beforeImage: "/testimonial1before.JPG?height=200&width=150",
     afterImage: "/testimonial1after.jpg?height=200&width=150",
     rating: 5,
   },
   {
-    name: "Kyle Fillion",
+    name: "Kyle Filion",
     result: "",
     quote:
-      "I grew up skinny and wanted to put on size and get stronger for Hockey. Miguel helped me achieve both those goals with his approach. Fitness is now part of my every day life.",
+      "I grew up on the skinnier side and always wanted to fill out my frame. Miguel’s strength programming and nutritional advice helped me put on a lot of muscle that I didn't know I was capable of doing.",
     beforeImage: "/testimonial2before.PNG?height=200&width=150",
     afterImage: "/testimonial2after.PNG?height=200&width=150",
     rating: 5,
@@ -27,7 +27,7 @@ const testimonials = [
     name: "Tia Skri",
     result: "",
     quote:
-      "I had bad drinking and eating habits and was gaining weight but Miguel showed me ways to overcome it while still being able to enjoy myself on a healthy weight loss and muscle building journey.",
+      "I didn't have great habits when it came to food and cooking in general but I was able to balance those with Miguel’s guidance. Helping me stay consistent in the gym was also a huge plus.",
     beforeImage: "/testimonial3before.JPG?height=200&width=150",
     afterImage: "/testimonial3after.JPG?height=200&width=150",
     rating: 5,
@@ -75,7 +75,7 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Real Results from Real People
+            Real results from real people
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             See the transformations achieved through our custom programs and
